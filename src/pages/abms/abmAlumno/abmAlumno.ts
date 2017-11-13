@@ -84,8 +84,13 @@ export class AbmAlumnoPage {
         anio: this.formAlta.controls['anio'].value,
         curso: this.formAlta.controls['curso'].value
       });
-      let prompt = this.alertCtrl.create({ title: 'Alumno modificado', buttons: [{ text: 'Ok',}] });
       this.modifId = "";
+      let prompt = this.alertCtrl.create({ title: 'Alumno modificado', buttons: [{ text: 'Ok',}] });
+<<<<<<< HEAD
+      this.modifId = "";
+=======
+      prompt.present();
+>>>>>>> b5def1e08d7adc25f587345315d1cc9809b5a734
     }
     this.formAlta.reset();
   }
