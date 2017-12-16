@@ -44,7 +44,6 @@ export class LoginPage {
     setTimeout(() => this.splash = false, 4000);
   }
 
-
   async login(user: User) {
     this.allFilled();
     if(this.valid.value){
