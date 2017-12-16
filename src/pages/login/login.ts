@@ -5,10 +5,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastController, Loading, LoadingController } from 'ionic-angular';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import swal from 'sweetalert2';
-
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { HomePage } from '../home/home';
 import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
+import { Observable } from 'rxjs/Observable';
 //import { DomSanitizer } from '@angular/platform-browser';
 
 //import { SocketService } from "../../services/socket.service";
@@ -34,6 +35,7 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
+    public af: AngularFireDatabase,
     public facebook: Facebook,
     //public socketService: SocketService
   ) {
@@ -93,22 +95,38 @@ export class LoginPage {
       try {
         let loading = this.loadSpinner();
         loading.present();
-        await this.authAf.auth.signInWithEmailAndPassword(user.email, user.password)
-          .then(result => {
-            /*this.socketService.connect(user.email); 
-            this.connection = this.socketService.getNotificationObservable().subscribe();*/
+        let usuarioEncontrado: boolean = false;
+        (this.af.list("/usuarios").map(usuario => {
+          let encontrado = false;
+          usuario.forEach(element => {
+            if(usuario.email == user.email && usuario.pass == user.password && !usuarioEncontrado) {
+              encontrado = true;
+              usuarioEncontrado = true;
+              this.authAf.auth.signInWithEmailAndPassword(user.email, user.password)
+                .then(result => {
+                  swal({
+                    title: '¡Bienvenido!',
+                    text: user.email,
+                    type: 'success',
+                    timer: 1500
+                  })
+                  this.navCtrl.setRoot(HomePage)})
+                .catch(error => {
+                  loading.dismiss();
+                  this.showToast(error.message);
+                })
+            }
+          });
+          if(!encontrado) {
             swal({
-              title: '¡Bienvenido!',
-              text: user.email,
-              type: 'success',
+              title: 'Usuario incorrecto',
+              text: 'Este usuario no existe o fue eliminado',
+              type: 'error',
               timer: 1500
             })
-            this.navCtrl.setRoot(HomePage)})
-          .catch(error => {
-            loading.dismiss();
-            this.showToast(error.message);
-          })
-        } catch (error) {
+          }
+        }) as Observable<any>).subscribe();
+      } catch (error) {
             if(error.code == "auth/argument-error"){
               var mailError = "Formato de mail incorrecto";
               console.log(mailError);

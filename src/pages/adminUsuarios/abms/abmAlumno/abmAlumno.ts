@@ -362,9 +362,9 @@ export class AbmAlumnoPage {
       data["apellido"] = alumno.apellido;
       data["legajo"] = alumno.legajo;
       data["turno"] = alumno.turno;
-      data["matMar"] = "Ninguna";
-      data["matVier"] = "Ninguna";
-      data["matSab"] = "Ninguna";
+      data["matMar"] = alumno.matMar != undefined ? alumno.matMar : "Ninguna";
+      data["matVier"] = alumno.matVier != undefined ? alumno.matVier : "Ninguna";
+      data["matSab"] = alumno.matSab != undefined ? alumno.matSab : "Ninguna";
       data["email"] = "SIN DEFINIR";
       data["pass"] = "";
       data["tipo"] = "alumno";
@@ -372,7 +372,7 @@ export class AbmAlumnoPage {
       data["pres_Viernes"] = "0";
       data["pres_Sabado"] = "0";
       data["tieneFoto"] = "0";
-      //this.af.list("/usuarios").push(data);
+      this.af.list("/usuarios").push(data);
     });
     swal({
       title: 'Éxito',
