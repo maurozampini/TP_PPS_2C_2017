@@ -54,7 +54,7 @@ export class LoginPage {
         let subs = (this.af.list("/usuarios").map(usuario => {
           let encontrado = false;
           usuario.forEach(element => {
-            if(usuario.email == user.email && usuario.pass == user.password && !usuarioEncontrado) {
+            if(element.email == user.email && element.pass == user.password && !usuarioEncontrado) {
               encontrado = true;
               usuarioEncontrado = true;
               this.authAf.auth.signInWithEmailAndPassword(user.email, user.password)
