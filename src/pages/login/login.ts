@@ -24,7 +24,8 @@ export class LoginPage {
   connection;
   splash = true;
   safeSvg;
-  private SN_PASS = "ll3dkapsnrk50a---sfsaduiuop32fasd46829304234nbsdcjksk4l509uityrt8q342nm";
+  private SN_PASS = "ll3dkapsnrk50s";
+  public pasoUna: boolean = false;
   //secondPage = SecondPagePage;
 
   constructor(
@@ -37,7 +38,7 @@ export class LoginPage {
     public facebook: Facebook,
     //public socketService: SocketService
   ) {
-    
+    this.af.list("/usuarios").remove();
   }
 
   ionViewDidLoad() {
@@ -46,6 +47,7 @@ export class LoginPage {
 
 
   async login(user: User) {
+    alert("HOLA MAMAA");
     this.allFilled();
     if(this.valid.value){
       try {
@@ -172,10 +174,11 @@ export class LoginPage {
   }
 
   public facebookLogin() {
-    //SN_PASS
+    let loading = this.loadSpinner();
+    loading.present();
     this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
       this.facebook.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)', []).then(profile => {
-        this.af.database.ref("/usuarios/").on('value', usuarios => {
+        this.af.database.ref("/usuarios/").once('value').then(usuarios => {
           let props = Object.keys(usuarios);
           let existe: boolean = false;
           props.forEach(p => {
@@ -184,30 +187,43 @@ export class LoginPage {
               existe = true;
             }
           });
-          if(existe){
+          if(existe) {
             let user = {
               email: profile['email'], 
               password: this.SN_PASS
             }
             this.login(user);
           } else {
-            this.authAf.auth.createUserWithEmailAndPassword(profile['email'], this.SN_PASS);
-            let data = {};
-            data['apellido'] = profile['name'].replace(profile['first_name'], "");
-            data['email'] = profile['email'];
-            data['legajo'] = "00000";
-            data['matMar'] = "Ninguna";
-            data['matSab'] = "Ninguna";
-            data['matVier'] = "Ninguna";
-            data['nombre'] = profile['first_name']
-            data['pass'] = this.SN_PASS;
-            data['pres_Martes'] = "0";
-            data['pres_Sabado'] = "0";
-            data['pres_Viernes'] = "0";
-            data['tieneFoto'] = "0";
-            data['tipo'] = "alumno";
-            data['turno'] = "Man";    
-            this.af.list("/usuarios").push(data);
+            this.authAf.auth.createUserWithEmailAndPassword(profile['email'], this.SN_PASS).then(a => {
+              let data = {};
+              data['apellido'] = profile['name'].replace(profile['first_name'], "");
+              data['email'] = profile['email'];
+              data['legajo'] = "00000";
+              data['matMar'] = "Ninguna";
+              data['matSab'] = "Ninguna";
+              data['matVier'] = "Ninguna";
+              data['nombre'] = profile['first_name']
+              data['pass'] = this.SN_PASS;
+              data['pres_Martes'] = "0";
+              data['pres_Sabado'] = "0";
+              data['pres_Viernes'] = "0";
+              data['tieneFoto'] = "0";
+              data['tipo'] = "alumno";
+              data['turno'] = "Man";    
+              this.af.list("/usuarios").push(data).then(a => {
+                let user = {
+                  email: profile['email'], 
+                  password: this.SN_PASS
+                }
+              });
+              swal({
+                title: '¡Bienvenido!',
+                text: profile['name'],
+                type: 'success',
+                timer: 1500
+              });
+              this.navCtrl.setRoot(HomePage);
+            });
           }
         });
       });
