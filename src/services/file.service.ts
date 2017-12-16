@@ -4,11 +4,11 @@ import swal from 'sweetalert2';
 
 export class FileService {
 
-    public static CsvToAlumnosList(fileContent: string): Alumno[] {
-        return this.lineasToAlumnosList(fileContent.split("\n"));
+    public static CsvToAlumnosList(fileContent: string, materias: any[]): Alumno[] {
+        return this.lineasToAlumnosList(fileContent.split("\n"), materias);
     }
 
-    public static ExelToAlumnosList(result: any): Alumno[] {
+    public static ExelToAlumnosList(result: any, materias: any[]): Alumno[] {
 	    let workBook: XLSX.WorkBook = XLSX.read(result, {type: 'binary'});
         let sheet: XLSX.WorkSheet = workBook.Sheets[workBook.SheetNames[0]];
         let props: Array<string> = Object.keys(sheet);
@@ -34,10 +34,10 @@ export class FileService {
         for(let i = 0; i < colA.length; i++) {
             lineas.push(colA[i] + ";" + colB[i] + ";" + colC[i]);
         }
-        return this.lineasToAlumnosList(lineas);
+        return this.lineasToAlumnosList(lineas, materias);
     }
 
-    private static lineasToAlumnosList(lineas: Array<string>): Alumno[] {
+    private static lineasToAlumnosList(lineas: Array<string>, materias: any[]): Alumno[] {
         let alumnos = new Array<Alumno>();
         lineas.forEach(l => {
             let nombre: string;
@@ -56,6 +56,15 @@ export class FileService {
                         let horaFin = parseInt(elementos[2].split(" ")[3].split(":")[0]);
                         turno = (horaInicio >= 8 && horaFin <= 12) ? "Man" : "Noch";
                         let al = new Alumno(legajo, apellido, nombre, turno);
+                        let dia = elementos[2].split(" ")[0];
+                        let diaProp: string = dia == "Martes" ? "matMar" : (dia == "Viernes" ? "matVier" : "matSab");
+                        let props = Object.keys(materias);
+                        props.forEach(p => {
+                            let m = materias[p];
+                            if(m.turno == turno && m.dia == dia) {
+                                al[diaProp] = m.nombre;
+                            }
+                        });
                         alumnos.push(al);    
                     }
                 }

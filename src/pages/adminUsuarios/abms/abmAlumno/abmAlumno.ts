@@ -15,6 +15,9 @@ export class Alumno{
     public nombre: string,
     public turno: string){
     }
+    public matMar: string;
+    public matVier: string;
+    public matSab: string;
 }
 
 @IonicPage()
@@ -330,12 +333,16 @@ export class AbmAlumnoPage {
     let reader = new FileReader();
     if(extension == "csv") {
       reader.onload = () => {
-        this.addAlumnosList(FileService.CsvToAlumnosList(reader.result));
+        this.af.database.ref("/materias/").on('value', materias => {
+          this.addAlumnosList(FileService.CsvToAlumnosList(reader.result, materias.val()));
+        });
       }
       reader.readAsText(file);
     } else if (extension == "xlsx") {
       reader.onload = (e: any) => {
-        this.addAlumnosList(FileService.ExelToAlumnosList(e.target.result));
+        this.af.database.ref("/materias/").on('value', materias => {
+          this.addAlumnosList(FileService.ExelToAlumnosList(e.target.result, materias.val()));
+        });
       };
       reader.readAsBinaryString(file);
     } else {
@@ -365,7 +372,7 @@ export class AbmAlumnoPage {
       data["pres_Viernes"] = "0";
       data["pres_Sabado"] = "0";
       data["tieneFoto"] = "0";
-      this.af.list("/usuarios").push(data);
+      //this.af.list("/usuarios").push(data);
     });
     swal({
       title: 'Éxito',
