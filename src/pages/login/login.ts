@@ -51,7 +51,7 @@ export class LoginPage {
         let loading = this.loadSpinner();
         loading.present();
         let usuarioEncontrado: boolean = false;
-        (this.af.list("/usuarios").map(usuario => {
+        let subs = (this.af.list("/usuarios").map(usuario => {
           let encontrado = false;
           usuario.forEach(element => {
             if(usuario.email == user.email && usuario.pass == user.password && !usuarioEncontrado) {
@@ -81,6 +81,9 @@ export class LoginPage {
             })
           }
         }) as Observable<any>).subscribe();
+        setTimeout(() => {
+          subs.unsubscribe();
+        }, 40000);
       } catch (error) {
             if(error.code == "auth/argument-error"){
               var mailError = "Formato de mail incorrecto";
