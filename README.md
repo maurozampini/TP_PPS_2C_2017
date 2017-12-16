@@ -25,17 +25,6 @@ Branch: Perfil
 -------------------
 
 Módulo a desarrollar:
-• Login con red social (Punto F)
-
-Fecha inicio: 26/11/2017
-
-Fecha fin: 27/11/2017
-
-Branch: LoginRedSocial
-
--------------------
-
-Módulo a desarrollar:
 • QR para Alumnos (Punto M)
 
 Fecha inicio: 27/11/2017
@@ -43,17 +32,6 @@ Fecha inicio: 27/11/2017
 Fecha fin: 02/11/2017
 
 Branch: QRAlumnos
-
--------------------
-
-Módulo a desarrollar:
-• QR para Profesores (Punto N)
-
-Fecha inicio: 28/11/2017
-
-Fecha fin: 02/11/2017
-
-Branch: QRProfesores
 
 -------------------
 
@@ -80,35 +58,28 @@ Branch: PushNotis
 -------------------
 
 # Juan Manuel Barreda Fafasuli
+
+
+-------------------
+
+Módulo a desarrollar:
+• QR para Profesores (Punto N)
+
+Fecha inicio: 10/12/2017
+
+Fecha fin: 14/11/2017
+
+Branch: QRProfesor
+
+------------------
+
 Módulo a desarrollar: • ABM de Alumnos (G)
 
 Fecha inicio: 09/11/2017
 
-Fecha fin: 11/11/2017
+Fecha fin: 13/12/2017
 
-Branch: ABMAlumnos, CambiosEnABMs y CambiosABMs
-
--------------------
-
-Módulo a desarrollar: • Navegación y estilos (paleta de colores, splash, tipografia) (I)
-
-Fecha inicio: 13/11/2017
-
-Fecha fin: 01/12/2017
-
-Branch: NavegacionEnAPP y master.
-
--------------------
-
-Módulo a desarrollar: 
-
-• ABM Administrativo y Profesor (J)
-
-Fecha inicio: 21/11/2017
-
-Fecha fin: 21/11/2017
-
-Branch: master, CambiosEnABMs y CambiosABMs
+Branch: ABMAlumnos, CambiosEnABMs y CambiosABMs, ABMAlumnosFinal
 
 -------------------
 
@@ -116,18 +87,29 @@ Módulo a desarrollar: • Toma de lista (A)
 
 Fecha inicio: 21/11/2017
 
-Fecha fin: 30/11/2017
+Fecha fin: 16/11/2017
 
-Branch: TomaLista, ModifTomaLista
+Branch: TomaLista, ModifTomaLista, TomaDeAsistenciaFinal
 
 -------------------
 
-Módulo a desarrollar: • Encuestas (B)
+Módulo a desarrollar: • Carga de archivos (C)
 
- • Graficos (L)
+Fecha inicio: 12/12/17
 
-Fecha inicio: 24/11/2017
+Fecha fin: 15/12/17
 
-Fecha fin: 01/12/2017
+Branch: ABMAlumnoFinal
 
-Branch: Encuestas, ModifEncuesta
+---------------------
+
+Módulo a desarrollar:
+• Login con red social (F)
+
+Fecha inicio: 14/12/2017
+
+Fecha fin: 15/12/2017
+
+Branch: LoginRedesSociales
+
+
