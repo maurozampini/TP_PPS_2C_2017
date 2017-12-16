@@ -5,14 +5,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastController, Loading, LoadingController } from 'ionic-angular';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import swal from 'sweetalert2';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { HomePage } from '../home/home';
-import { Facebook } from '@ionic-native/facebook';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
-//import { DomSanitizer } from '@angular/platform-browser';
-
-//import { SocketService } from "../../services/socket.service";
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
  
 @IonicPage()
 @Component({
@@ -27,6 +24,8 @@ export class LoginPage {
   connection;
   splash = true;
   safeSvg;
+  private SN_PASS = "ll3dkapsnrk50s";
+  public pasoUna: boolean = false;
   //secondPage = SecondPagePage;
 
   constructor(
@@ -39,44 +38,10 @@ export class LoginPage {
     public facebook: Facebook,
     //public socketService: SocketService
   ) {
-    
   }
 
   ionViewDidLoad() {
     setTimeout(() => this.splash = false, 4000);
-  }
-
-  facebookLogin(): Promise<any> {
-    let loading = this.loadSpinner();
-    loading.present();
-    return this.facebook.login(['email'])
-      .then( response => {
-        const facebookCredential = firebase.auth.FacebookAuthProvider
-          .credential(response.authResponse.accessToken);
-        firebase.auth().signInWithCredential(facebookCredential)
-          .then( success => { 
-            swal({
-              title: '¡Bienvenido!',
-              type: 'success',
-              timer: 1500
-            })
-            this.navCtrl.setRoot(HomePage);
-            console.log("Firebase success: " + JSON.stringify(success)); 
-          });
-  
-      })
-      .catch((error) => { 
-        loading.dismiss();
-        console.log(error)
-       });
-  }
-  
-  public googleLogin(){
-
-  }
-
-  public twitterLogin() {
-
   }
 
   async login(user: User) {
@@ -199,6 +164,79 @@ export class LoginPage {
       duration: 5000
     });
     return loader;
+  }
+
+  public githubLogin() {
+
+  }
+
+  public facebookLogin() {
+    let loading = this.loadSpinner();
+    loading.present();
+    this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
+      this.facebook.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)', []).then(profile => {
+        this.af.database.ref("/usuarios/").once('value').then(usuarios => {
+          let props = Object.keys(usuarios.val());
+          let existe: boolean = false;
+          props.forEach(p => {
+            let usr = usuarios.val()[p];
+            if(usr.email == profile['email']){
+              existe = true;
+            }
+          });
+          let lad = this.loadSpinner();
+          lad.present();
+          if(existe) {
+            this.authAf.auth.signInWithEmailAndPassword(profile['email'], this.SN_PASS)
+            .then(result => {
+              swal({
+                title: '¡Bienvenido!',
+                text: profile['email'],
+                type: 'success',
+                timer: 1500
+              });
+              this.navCtrl.setRoot(HomePage)})
+            .catch(error => {
+              loading.dismiss();
+              swal({
+                title: 'Error!',
+                text: profile['email'],
+                type: 'error',
+                timer: 1500
+              });
+            })
+          } else {
+            let lud = this.loadSpinner();
+            lud.present();
+            this.authAf.auth.createUserWithEmailAndPassword(profile['email'], this.SN_PASS).then(a => {
+              let data = {};
+              data['apellido'] = profile['name'].replace(profile['first_name'], "");
+              data['email'] = profile['email'];
+              data['legajo'] = "00000";
+              data['matMar'] = "Ninguna";
+              data['matSab'] = "Ninguna";
+              data['matVier'] = "Ninguna";
+              data['nombre'] = profile['first_name']
+              data['pass'] = this.SN_PASS;
+              data['pres_Martes'] = "0";
+              data['pres_Sabado'] = "0";
+              data['pres_Viernes'] = "0";
+              data['tieneFoto'] = "0";
+              data['tipo'] = "alumno";
+              data['turno'] = "Man";    
+              this.af.list("/usuarios").push(data);
+              swal({
+                title: '¡Bienvenido!',
+                text: profile['name'],
+                type: 'success',
+                timer: 1500
+              });
+              this.navCtrl.setRoot(HomePage);
+            });
+          }
+        });
+      });
+    });
   }
 
 }

@@ -92,4 +92,8 @@
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-camera" spec="^3.0.0" />
     <plugin name="cordova-plugin-file-opener2" spec="^2.0.19" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="523272904394004" />
+        <variable name="APP_NAME" value="Vida y Obra de Fafa" />
+    </plugin>
 </widget>

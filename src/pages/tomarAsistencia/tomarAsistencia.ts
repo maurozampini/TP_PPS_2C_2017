@@ -87,9 +87,7 @@ export class TomarAsistenciaPage {
   public onInput(event: any): void {
     if(this.buscarPor == "Aula"){
       this.filtrarMateriasPorAula();
-    } else if (this.buscarPor == "Profesor"){
-      this.materiaDeProfe();
-    }
+    } 
   }
 
   private filtrarMateriasPorAula(): void {
