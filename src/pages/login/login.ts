@@ -169,4 +169,12 @@ export class LoginPage {
     return loader;
   }
 
+  public githubLogin() {
+
+  }
+
+  public facebookLogin() {
+    
+  }
+
 }
