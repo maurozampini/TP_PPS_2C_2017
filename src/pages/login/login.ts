@@ -7,9 +7,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import swal from 'sweetalert2';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { HomePage } from '../home/home';
-import { Facebook } from '@ionic-native/facebook';
 import firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 //import { DomSanitizer } from '@angular/platform-browser';
 
 //import { SocketService } from "../../services/socket.service";
@@ -174,7 +174,24 @@ export class LoginPage {
   }
 
   public facebookLogin() {
-    
+    let provider = new firebase.auth.FacebookAuthProvider();
+    console.log(provider);
+    /*this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
+      this.facebook.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)', []).then(profile => {
+        this.af.database.ref("/usuarios/").on('value', usuarios => {
+          let props = Object.keys(usuarios);
+          let existe: boolean = false;
+          props.forEach(p => {
+            let usr = usuarios[p];
+            if(usr.email == profile['email']){
+
+            }
+          })
+        });
+        let userData = {email: profile['email'], first_name: profile['first_name'], picture: profile['picture_large']['data']['url'], username: profile['name']}
+        alert(profile['email']);
+      });
+    });*/
   }
 
 }
