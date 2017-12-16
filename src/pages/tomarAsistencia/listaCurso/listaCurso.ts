@@ -62,6 +62,7 @@ export class ListaCursoPage {
   }
 
   public setCurrentMateria(materia: any) {
+    console.log(materia);
     if(this.currentMateria == undefined) {
       this.currentMateria = materia;
       this.currentMateria["presentes"] = 0;
@@ -71,6 +72,7 @@ export class ListaCursoPage {
   }
 
   public updateAsistencias(alumno: any) {
+    console.log("aa");
     if(this.alumnosContados.indexOf(alumno.email) == -1){
       if(alumno["pres_" + this.currentMateria.nombre] == 1) {
         let presentes: number = this.currentMateria["presentes"] != undefined ? this.currentMateria["presentes"] as number : 0;
