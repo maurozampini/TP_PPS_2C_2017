@@ -14,7 +14,7 @@ import { Chart } from 'chart.js';
 })
 export class ListaCursoPage {
   
-  private currentMateria: any;
+  private currentMateria: any = undefined;
   //Asistencias
   public tab: string = "asistencia";
   public materias: FirebaseListObservable<any[]>;
@@ -70,8 +70,11 @@ export class ListaCursoPage {
     }
   }
 
-  public updateAsistencias(alumno: any) {
+  public updateAsistencias(alumno: any, materia: any) {
+    this.setCurrentMateria(materia);
+    console.log(this.currentMateria);
     if(this.alumnosContados.indexOf(alumno.email) == -1 && this.currentMateria != undefined){
+      console.log("aaa");
       if(alumno["pres_" + this.currentMateria.nombre] == 1) {
         let presentes: number = this.currentMateria["presentes"] != undefined ? this.currentMateria["presentes"] as number : 0;
         presentes = (presentes as number) + 1;

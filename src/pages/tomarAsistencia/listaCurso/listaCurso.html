@@ -18,15 +18,13 @@
 
   <ion-content *ngIf="tab == 'asistencia'">
     <ion-content *ngFor="let m of materias | async">
-      {{m.nombre}}
-      {{setCurrentMateria(m)}}
       <ion-card>
         <ion-item color="primary" text-center>
           <h1 class="titulo-lista"><b>{{m.nombre}} {{m.curso}}</b></h1>
         </ion-item>
       </ion-card>
       <ion-card *ngFor="let a of alumnos | async" (click)="setPresente(a, m.dia, m.listo)" class="item-alumno" [class.disabled]="m.listo == 1">
-        {{updateAsistencias(a)}}
+        {{updateAsistencias(a, m)}}
         <ion-item>
           <h2>{{a.apellido}}, {{a.nombre}}</h2>
           <p>Legajo: <b>{{a.legajo}}</b></p>

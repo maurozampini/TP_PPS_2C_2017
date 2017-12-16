@@ -73,12 +73,12 @@ export class LoginPage {
             }
           });
           if(!encontrado) {
-            swal({
+            /*swal({
               title: 'Usuario incorrecto',
               text: 'Este usuario no existe o fue eliminado',
               type: 'error',
               timer: 1500
-            })
+            })*/
           }
         }) as Observable<any>).subscribe();
         setTimeout(() => {
