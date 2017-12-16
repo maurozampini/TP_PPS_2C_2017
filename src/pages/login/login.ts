@@ -5,14 +5,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastController, Loading, LoadingController } from 'ionic-angular';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import swal from 'sweetalert2';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { HomePage } from '../home/home';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-//import { DomSanitizer } from '@angular/platform-browser';
-
-//import { SocketService } from "../../services/socket.service";
  
 @IonicPage()
 @Component({
@@ -27,6 +24,7 @@ export class LoginPage {
   connection;
   splash = true;
   safeSvg;
+  private SN_PASS = "ll3dkapsnrk50a---sfsaduiuop32fasd46829304234nbsdcjksk4l509uityrt8q342nm";
   //secondPage = SecondPagePage;
 
   constructor(
@@ -174,9 +172,8 @@ export class LoginPage {
   }
 
   public facebookLogin() {
-    let provider = new firebase.auth.FacebookAuthProvider();
-    console.log(provider);
-    /*this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
+    //SN_PASS
+    this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
       this.facebook.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)', []).then(profile => {
         this.af.database.ref("/usuarios/").on('value', usuarios => {
           let props = Object.keys(usuarios);
@@ -184,14 +181,37 @@ export class LoginPage {
           props.forEach(p => {
             let usr = usuarios[p];
             if(usr.email == profile['email']){
-
+              existe = true;
             }
-          })
+          });
+          if(existe){
+            let user = {
+              email: profile['email'], 
+              password: this.SN_PASS
+            }
+            this.login(user);
+          } else {
+            this.authAf.auth.createUserWithEmailAndPassword(profile['email'], this.SN_PASS);
+            let data = {};
+            data['apellido'] = profile['name'].replace(profile['first_name'], "");
+            data['email'] = profile['email'];
+            data['legajo'] = "00000";
+            data['matMar'] = "Ninguna";
+            data['matSab'] = "Ninguna";
+            data['matVier'] = "Ninguna";
+            data['nombre'] = profile['first_name']
+            data['pass'] = this.SN_PASS;
+            data['pres_Martes'] = "0";
+            data['pres_Sabado'] = "0";
+            data['pres_Viernes'] = "0";
+            data['tieneFoto'] = "0";
+            data['tipo'] = "alumno";
+            data['turno'] = "Man";    
+            this.af.list("/usuarios").push(data);
+          }
         });
-        let userData = {email: profile['email'], first_name: profile['first_name'], picture: profile['picture_large']['data']['url'], username: profile['name']}
-        alert(profile['email']);
       });
-    });*/
+    });
   }
 
 }
