@@ -18,6 +18,7 @@
 
   <ion-content *ngIf="tab == 'asistencia'">
     <ion-content *ngFor="let m of materias | async">
+      {{m.nombre}}
       {{setCurrentMateria(m)}}
       <ion-card>
         <ion-item color="primary" text-center>
