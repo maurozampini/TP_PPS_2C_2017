@@ -10,6 +10,9 @@
         <ion-segment-button value="agregar" (click)="cambiarDeTab()">
           Agregar 
         </ion-segment-button>
+        <ion-segment-button value="cargar" (click)="cambiarDeTab()">
+          Cargar Archivo 
+        </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
   </ion-header>
@@ -55,8 +58,12 @@
   
   <ion-content *ngIf="tab == 'agregar'">
       <h1>Agregar alumno</h1>
-      <img class="img-login" [src]="imgUrl != '' ? imgUrl : userImg"/>
-      <button class="our-btn" ion-button (click)="takePicture()">Tomar foto</button>
+      
+      <ion-card>
+        <img style="width: 60%; height: 60%; margin-left: 20%; margin-bottom: -5%;" [src]="imgUrl != 'NADA'? imgUrl : userImg"/>
+        <br>
+      </ion-card>
+      <button id="boton-sacar-foto" class="our-btn" ion-button block (click)="takePicture()">Tomar foto</button>
       <form [formGroup]="formAlta" (ngSubmit)="agregarAlumno()">
         <ion-item>
           <ion-label>Nombre</ion-label>
@@ -72,38 +79,63 @@
             </ion-item>
             <ion-item>
               <ion-label>Email</ion-label>
-              <ion-input type="email" [disabled]="modifId != ''" formControlName="email" email></ion-input>
+              <ion-input type="email" [disabled]="disablesFields" formControlName="email" email></ion-input>
             </ion-item>
             <ion-item>
               <ion-label>Contraseña</ion-label>
-              <ion-input type="password" [disabled]="modifId != ''" formControlName="pass"></ion-input>
+              <ion-input type="password" [disabled]="disablesFields" formControlName="pass"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label>Programacion</ion-label>
-              <ion-select formControlName="Programacion">
-                  <ion-option>Ninguno</ion-option>
-                  <ion-option>A</ion-option>
-                  <ion-option>B</ion-option>
+              <ion-label>Turno</ion-label>
+              <ion-select (ionChange)="loadMaterias($event)" formControlName="turno">
+                  <ion-option value="Man" [selected]="true">Mañana</ion-option>
+                  <ion-option value="Noch">Noche</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
-              <ion-label>Laboratorio</ion-label>
-              <ion-select formControlName="Laboratorio">
-                  <ion-option>Ninguno</ion-option>
-                  <ion-option>A</ion-option>
-                  <ion-option>B</ion-option>
+              <ion-label>Martes</ion-label>
+              <ion-select formControlName="matMar">
+                  <ion-option>Ninguna</ion-option>
+                  <ion-option *ngFor="let m of materiasMartes | async">{{m.nombre}}</ion-option>
               </ion-select>
             </ion-item>
             <ion-item>
-              <ion-label>Estadistica</ion-label>
-              <ion-select formControlName="Estadistica">
-                  <ion-option>Ninguno</ion-option>
-                  <ion-option>A</ion-option>
-                  <ion-option>B</ion-option>
+              <ion-label>Viernes</ion-label>
+              <ion-select formControlName="matVier">
+                  <ion-option>Ninguna</ion-option>
+                  <ion-option *ngFor="let m of materiasViernes | async">{{m.nombre}}</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Sabado</ion-label>
+              <ion-select formControlName="matSab">
+                  <ion-option>Ninguna</ion-option>
+                  <ion-option *ngFor="let m of materiasSabado | async">{{m.nombre}}</ion-option>
               </ion-select>
             </ion-item>
             <br>
           <button class="our-btn" ion-button block type="submit" [disabled]="!formAlta.valid">{{modifId == "" ? "Agregar" : "Modificar"}}</button>
       </form>
+  </ion-content>
+
+  <ion-content *ngIf="tab == 'cargar'">
+    <ion-card>
+      <img style="width: 90%;margin-left: 5%;" src="assets/archivo.png"/>
+      <ion-card-content>
+        <ion-card-title>
+          Cargar Archivo
+        </ion-card-title>
+        <p>
+            Cargando los archivos suministrados por la secretaria 
+            podés cargar un <b>listado de alumnos al sistema</b>. <br>
+            Asegurate de que sean <b>.csv o archivos Exel</b>.
+        </p>
+      </ion-card-content>
+    </ion-card>
+    <input (change)="leerArchivo($event)" name="file" id="file" style="opacity: 0" type="file">
+    <label style="margin-top: -24px;" class="our-btn" ion-button block for="file">
+      <ion-icon style="margin-right: 4px; margin-top: -3px;" name="md-document"></ion-icon>
+      Cargar archivo
+    </label>
   </ion-content>
 </ion-content>
