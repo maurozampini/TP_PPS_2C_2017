@@ -70,23 +70,13 @@ export class LoginPage {
         console.log(error)
        });
   }
+  
+  public googleLogin(){
 
-  githubLogin(){
-    let loading = this.loadSpinner();
-    loading.present();
-    return this.authAf.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
-    .then( response => {
-          swal({
-            title: '¡Bienvenido!',
-            type: 'success',
-            timer: 1500
-          })
-        this.navCtrl.setRoot(HomePage);
-        console.log("GitHub Login correcto");
-         })
-        .catch((error) => { 
-          loading.dismiss();
-      });
+  }
+
+  public twitterLogin() {
+
   }
 
   async login(user: User) {
