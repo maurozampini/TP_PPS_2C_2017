@@ -38,7 +38,6 @@ export class LoginPage {
     public facebook: Facebook,
     //public socketService: SocketService
   ) {
-    this.af.list("/usuarios").remove();
   }
 
   ionViewDidLoad() {
@@ -47,7 +46,6 @@ export class LoginPage {
 
 
   async login(user: User) {
-    alert("HOLA MAMAA");
     this.allFilled();
     if(this.valid.value){
       try {
@@ -179,21 +177,38 @@ export class LoginPage {
     this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
       this.facebook.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)', []).then(profile => {
         this.af.database.ref("/usuarios/").once('value').then(usuarios => {
-          let props = Object.keys(usuarios);
+          let props = Object.keys(usuarios.val());
           let existe: boolean = false;
           props.forEach(p => {
-            let usr = usuarios[p];
+            let usr = usuarios.val()[p];
             if(usr.email == profile['email']){
               existe = true;
             }
           });
+          let lad = this.loadSpinner();
+          lad.present();
           if(existe) {
-            let user = {
-              email: profile['email'], 
-              password: this.SN_PASS
-            }
-            this.login(user);
+            this.authAf.auth.signInWithEmailAndPassword(profile['email'], this.SN_PASS)
+            .then(result => {
+              swal({
+                title: '¡Bienvenido!',
+                text: profile['email'],
+                type: 'success',
+                timer: 1500
+              });
+              this.navCtrl.setRoot(HomePage)})
+            .catch(error => {
+              loading.dismiss();
+              swal({
+                title: 'Error!',
+                text: profile['email'],
+                type: 'error',
+                timer: 1500
+              });
+            })
           } else {
+            let lud = this.loadSpinner();
+            lud.present();
             this.authAf.auth.createUserWithEmailAndPassword(profile['email'], this.SN_PASS).then(a => {
               let data = {};
               data['apellido'] = profile['name'].replace(profile['first_name'], "");
@@ -210,12 +225,7 @@ export class LoginPage {
               data['tieneFoto'] = "0";
               data['tipo'] = "alumno";
               data['turno'] = "Man";    
-              this.af.list("/usuarios").push(data).then(a => {
-                let user = {
-                  email: profile['email'], 
-                  password: this.SN_PASS
-                }
-              });
+              this.af.list("/usuarios").push(data);
               swal({
                 title: '¡Bienvenido!',
                 text: profile['name'],
