@@ -22,6 +22,7 @@ import { FCM } from '@ionic-native/fcm';
 import { PagesService } from '../services/pages.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Facebook } from '@ionic-native/facebook';
+import { SettingsProvider } from '../providers/settings/settings';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { Facebook } from '@ionic-native/facebook';
     FCM,
     AngularFireAuth,
     PagesService,
-    Facebook
+    Facebook,
+    SettingsProvider
   ]
 })
 export class AppModule {}
