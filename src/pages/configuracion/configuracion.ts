@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SettingsProvider } from './../../providers/settings/settings';
 
 @IonicPage()
 @Component({
@@ -8,7 +9,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ConfiguracionPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public selectedTheme: String;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private settings: SettingsProvider) {
+  }
+
+  public changeTheme(theme: string) {
+    this.settings.setActiveTheme(theme);
   }
 
 }

@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
-
-/*
-  Generated class for the SettingsProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+import { BehaviorSubject } from 'rxjs/Rx';
+ 
 @Injectable()
 export class SettingsProvider {
-
-  constructor(public http: Http) {
-    console.log('Hello SettingsProvider Provider');
-  }
-
+ 
+    private theme: BehaviorSubject<String>;
+ 
+    constructor() {
+        this.theme = new BehaviorSubject('profesional-theme');
+    }
+ 
+    setActiveTheme(val) {
+        this.theme.next(val);
+    }
+ 
+    getActiveTheme() {
+        return this.theme.asObservable();
+    }
 }

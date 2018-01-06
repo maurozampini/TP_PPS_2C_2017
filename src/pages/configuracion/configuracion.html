@@ -7,4 +7,18 @@
 
 <ion-content padding>
 
+  <ion-card>
+    <ion-card-header>
+      Tema:
+    </ion-card-header>
+    <ion-card-content>
+      <ion-select [(ngModel)]="selectedTheme" (ionChange)="changeTheme($event)">
+        <ion-option value="profesional-theme">Profesional</ion-option>
+        <ion-option value="profesional-naive">Naive</ion-option>
+        <ion-option value="profesional-argentina">Argentina</ion-option>
+        <ion-option value="profesional-custom">Personalizado</ion-option>
+      </ion-select>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

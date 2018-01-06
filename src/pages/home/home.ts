@@ -7,6 +7,7 @@ import { NativeAudio } from '@ionic-native/native-audio';
 import { PushService } from '../../services/push.service';
 import { Platform } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { SettingsProvider } from './../../providers/settings/settings';
 
 @Component({
   selector: 'page-home',
@@ -14,9 +15,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class HomePage {
 
-  usera: any;
-  user: string = "Administrador";
+  public usera: any;
+  public user: string = "Administrador";
   public pages: Array<any>;
+  public selectedTheme: String;
 
   constructor(public navCtrl: NavController,
     public authAf: AngularFireAuth,
@@ -25,7 +27,9 @@ export class HomePage {
     public af: AngularFireDatabase,
     private platform: Platform,
     private pushService: PushService,
-    private pagesService: PagesService) {
+    private pagesService: PagesService,
+    private settings: SettingsProvider) {
+    this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
     af.database.ref("/usuarios/").on('value', usuarios => {
         let props = Object.getOwnPropertyNames(usuarios.val());
         props.forEach(p => {
@@ -37,6 +41,14 @@ export class HomePage {
     });
     this.pushService.getPermission(this.platform);
     this.pushService.receiveMessage(this.platform);
+  }
+
+  toggleAppTheme() {
+    if (this.selectedTheme === 'profesional-theme') {
+      this.settings.setActiveTheme('naive-theme');
+    } else {
+      this.settings.setActiveTheme('profesional-theme');
+    }
   }
 
   public navigate(route: string): void {
@@ -52,21 +64,18 @@ export class HomePage {
     let alert = this.alertCtrl.create({
       title: 'Cerrar sesión',
       message: '¿Desea cerrar la sesión?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-          }
-        },
-        {
-          text: 'Confirmar',
-          handler: () => {
-            this.authAf.auth.signOut();
-            this.navCtrl.setRoot(LoginPage);
-          }
+      buttons: [{
+        text: 'Cancelar',
+        role: 'cancel',
+        handler: () => {
+      }},
+      {
+        text: 'Confirmar',
+        handler: () => {
+          this.authAf.auth.signOut();
+          this.navCtrl.setRoot(LoginPage);
         }
-      ]
+      }]
     });
     alert.present();
   }
