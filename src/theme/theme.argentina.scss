@@ -1,22 +1,26 @@
 .argentina-theme {
 
-    ion-content {
-      background-color: rgb(32, 35, 233) !important;
-    }
+  .toolbar-title-md, .bar-button-default-md {
+    color: rgb(133, 135, 231) !important;
+  }
+
+  ion-content {
+    background-color: rgb(32, 35, 233) !important;
+  }
    
-    .toolbar-background {
-      background-color: rgb(32, 35, 233) !important;
-    }
+  .toolbar-background {
+    background-color: rgb(32, 35, 233) !important;
+  }
 
-    ion-segment-button {
-      color: rgb(32, 35, 233) !important;
-    }
+  ion-segment-button {
+    color: rgb(133, 135, 231) !important;
+  }
 
-    .segment-button.segment-activated {
-      border-color: rgb(32, 35, 233) !important;
-    }
+  .segment-button.segment-activated {
+    border-color: rgb(133, 135, 231) !important;
+  }
 
-    .button-md.button-default {
-      background-color: rgb(32, 35, 233) !important;
-    }
+  .button-md.button-default {
+    background-color: rgb(133, 135, 231) !important;
+  }
 }
