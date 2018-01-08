@@ -39,7 +39,11 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222
-);
+) !default;
+
+    .segment-md-primary {
+      color: #9c3caf !important;
+    }
 
 
 // App iOS Variables
@@ -91,3 +95,4 @@ $colors: (
 @import "theme.argentina";
 @import "theme.naive";
 @import "theme.profesional";
+//Customs?
