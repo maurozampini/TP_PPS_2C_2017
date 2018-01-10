@@ -8,7 +8,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content style="background-color: #03A9F4;" padding>
+<ion-content padding>
   <h1 text-center class="page-title">Universidad F.S.Z.</h1>
   <ion-card>
     <ion-card-header>
@@ -18,7 +18,7 @@
       <ng-template ngFor let-p [ngForOf]="pages">
         <button ion-item *ngIf="isListable(p.type)" (click)="navigate(p.route)">
           <ion-icon name="{{p.icon}}" item-start></ion-icon>
-            {{p.title}}
+          {{p.title}}
         </button>
       </ng-template>
     </ion-list>
