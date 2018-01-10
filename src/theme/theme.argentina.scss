@@ -1,34 +1,51 @@
 .argentina-theme {
 
-  $celeste: #74ACDF; //Gris
+  $celeste: #7dc1ff;
+  $azul: #3f56c7;
   $blanco: #FFFFFF;
   $amarillo: #F6B40E;
   $gris: #424242;
 
+  /* TOOLBAR */
   .toolbar-title-md, .bar-button-default-md {
     color: $gris !important;
   }
-
   .toolbar-background {
     background-color: $amarillo !important;
   }
 
-  ion-segment-button {
+  /* TOOLBAR BTN */
+  //Android
+  .segment-md-primary .segment-button {
     color: $gris !important;
-    border-bottom-color: $gris !important;;
   }
-
-  .segment-button.segment-activated {
+  .segment-button.segment-activated { //Active
     border-color: $blanco !important;
     color: $blanco !important;
   }
 
-  .button-md.button-default {
-    background-color: $celeste !important;
-    color: #000000 !important;
+  //iOS
+  .segment-ios-primary .segment-button { 
+    border-color: $gris;
+    color: $gris;
+  }
+  .segment-ios-primary .segment-button.segment-activated { //Active
+    background-color: $azul;
+    border-color: $gris !important;
   }
 
   ion-content {
     background-color: $celeste !important;
+  }
+  
+  /* LIST */
+  .item-md-primary, .item-ios-primary {
+    background-color: $azul;
+  }
+
+  /* BUTTON */
+  .button-md.button-default {
+    background-color: $azul !important;
+    color: $blanco !important;
   }
 }
