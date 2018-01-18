@@ -34,11 +34,13 @@
   }
 
   //iOS
-  .segment-ios-primary .segment-button { 
+  .segment-ios-primary .segment-button,
+  .segment-ios .segment-button { 
     border-color: $gris;
     color: $gris;
   }
-  .segment-ios-primary .segment-button.segment-activated { //Active
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
     background-color: $azul;
     border-color: $gris !important;
   }
@@ -55,20 +57,36 @@
     height: 25%;
   }
 
+  /* TITLE */
+  .page-title {
+    font-weight: $bold;
+  }
+
   /* LIST */
   .item-md-primary, .item-ios-primary {
     background-color: $azul;
   }
 
   /* BUTTON */
+
   .button-md.button-default, .button-ios {
     background-color: $azul !important;
     color: $blanco !important;
+    border-radius: 50px;
+    box-shadow: 4px 5px #222;
+    margin-bottom: 10px;
+    background-image: url("../assets/imagenes/fondo-boton-inicio.png");
+    background-repeat: no-repeat;
   }
 
-  .button-inner {
-    font-family: $magallanes !important;
-    font-weight: $regular;
+  .button-md.button-default:active, .button-ios:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .button-clear-ios {
+    color: $azul !important;
+    background-color: transparent !important;
   }
 
 }

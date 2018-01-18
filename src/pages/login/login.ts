@@ -59,12 +59,7 @@ export class LoginPage {
               usuarioEncontrado = true;
               this.authAf.auth.signInWithEmailAndPassword(user.email, user.password)
                 .then(result => {
-                  swal({
-                    title: '¡Bienvenido!',
-                    text: user.email,
-                    type: 'success',
-                    timer: 1500
-                  })
+                  
                   this.navCtrl.setRoot(HomePage)})
                 .catch(error => {
                   loading.dismiss();

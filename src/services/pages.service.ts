@@ -49,7 +49,6 @@ export class PagesService {
             lista.push(this.QrProfesoresPage);            
         }
 
-        lista.push(this.miPerfilPage);
         lista.push(this.configuracionPage);
         return lista;
     }
@@ -98,14 +97,6 @@ export class PagesService {
         route: 'EnviarAviso',
         type: PageType.Listable,
         icon: "md-notifications"
-    };
-
-    public miPerfilPage = { 
-        title: 'Mi Perfil', 
-        component: MiPerfilPage,
-        route: 'MiPerfil',
-        type: PageType.Listable,
-        icon: "md-person"
     };
 
     public tomarAsistenciaPage = { 
