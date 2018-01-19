@@ -4,10 +4,10 @@ import { BehaviorSubject } from 'rxjs/Rx';
 @Injectable()
 export class SettingsProvider {
  
-    private theme: BehaviorSubject<String>;
+    public theme: BehaviorSubject<String>;
  
     constructor() {
-        this.theme = new BehaviorSubject('argentina-theme');
+        this.theme = new BehaviorSubject('profesional-theme');
     }
  
     setActiveTheme(val) {
