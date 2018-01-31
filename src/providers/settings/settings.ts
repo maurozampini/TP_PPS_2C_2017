@@ -7,7 +7,7 @@ export class SettingsProvider {
     public theme: BehaviorSubject<String>;
  
     constructor() {
-        this.theme = new BehaviorSubject('profesional-theme');
+        this.theme = new BehaviorSubject('naive-theme');
     }
  
     setActiveTheme(val) {

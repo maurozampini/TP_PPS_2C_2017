@@ -24,26 +24,35 @@
       box-shadow: 0px 4px 0px $verde !important;
   }
 
-  /* TOOLBAR BTN *
+  /* TOOLBAR BTN */
   //Android
-  .segment-md-primary .segment-button {
-    color: $gris !important;
+  .segment-md-primary .segment-button,
+  .segment-md .segment-button {
+    color: $verde !important;
   }
+
   .segment-button.segment-activated { //Active
-    border-color: $blanco !important;
-    color: $blanco !important;
+    border-color: $naranja !important;
+    color: $naranja !important;
   }
 
   //iOS
   .segment-ios-primary .segment-button,
   .segment-ios .segment-button { 
-    border-color: $gris;
-    color: $gris;
+    border-color: $verde;
+    color: $verde;
   }
   .segment-ios-primary .segment-button.segment-activated, 
   .segment-ios .segment-button.segment-activated { //Active
-    background-color: $azul;
-    border-color: $gris !important;
+    background-color: $grisOsc;
+    border-color: $naranja !important;
+  }
+
+  /* TITLE */
+  h1 {
+    text-align: center;
+    color: $blanco;
+    font-weight: 500;
   }
 
   /* CONTENT */
