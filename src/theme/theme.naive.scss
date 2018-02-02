@@ -1,4 +1,4 @@
-@import "fonts/argentina.fonts";
+@import "fonts/naive.fonts";
 
 .naive-theme {
 
@@ -7,9 +7,10 @@
   $blanco: #FFFFFF;
   $amarillo: #F6B40E;
   $gris: #424242;
+  $hoja: url("../assets/imagenes/hoja-cuadriculada.jpg");
 
   ion-header, ion-content {
-    font-family: $magallanes !important;
+    font-family: $schoolbell !important;
   }
 
   /* TOOLBAR */
@@ -45,8 +46,9 @@
     border-color: $gris !important;
   }
 
+  /* BACKGROUND */
   ion-content, .scroll-content {
-    background-color: $celeste !important;
+    background-image: $hoja !important;
   }
   
   /*LOGO*/
