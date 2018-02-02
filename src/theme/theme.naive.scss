@@ -5,12 +5,16 @@
   $celeste: #7dc1ff;
   $azul: #3f56c7;
   $blanco: #FFFFFF;
-  $amarillo: #F6B40E;
   $gris: #424242;
-  $hoja: url("../assets/imagenes/hoja-cuadriculada.jpg");
+  $acuarela-azul: url("../assets/imagenes/fondo-header-naive.jpg");
+  $acuarela-roja: url("../assets/imagenes/fondo-boton-naive.jpg");
 
   ion-header, ion-content {
     font-family: $schoolbell !important;
+  }
+
+  ion-segment {
+    background-image: $acuarela-roja !important;
   }
 
   /* TOOLBAR */
@@ -21,7 +25,7 @@
     color: $gris !important;
   }
   .toolbar-background {
-    background-color: $amarillo !important;
+    background-image: $acuarela-azul !important;
   }
 
   /* TOOLBAR BTN */
@@ -30,7 +34,7 @@
     color: $gris !important;
   }
   .segment-button.segment-activated { //Active
-    border-color: $blanco !important;
+    border-color: $gris !important;
     color: $blanco !important;
   }
 
@@ -42,13 +46,13 @@
   }
   .segment-ios-primary .segment-button.segment-activated, 
   .segment-ios .segment-button.segment-activated { //Active
-    background-color: $azul;
+    background-image: $acuarela-azul;
     border-color: $gris !important;
   }
 
   /* BACKGROUND */
   ion-content, .scroll-content {
-    background-image: $hoja !important;
+    background-image: url("../assets/imagenes/hoja-cuadriculada.jpg") !important;
   }
   
   /*LOGO*/
@@ -62,23 +66,25 @@
   /* TITLE */
   .page-title {
     font-weight: $bold;
+    color: $gris;
+  }
+
+  .page-susbtitle {
+    color: $gris;
+    font-weight: $bold;
   }
 
   /* LIST */
   .item-md-primary, .item-ios-primary {
-    background-color: $azul;
+    background-image: $acuarela-roja !important;
   }
 
   /* BUTTON */
 
-  .button-md.button-default, .button-ios {
-    background-color: $azul !important;
+  .button-md.button-default, .button-ios, .cerrarSesion {
     color: $blanco !important;
-    border-radius: 50px;
-    box-shadow: 4px 5px #222;
     margin-bottom: 10px;
-    background-image: url("../assets/imagenes/fondo-boton-inicio.png");
-    background-repeat: no-repeat;
+    background-image: $acuarela-roja !important;
   }
 
   .button-md.button-default:active, .button-ios:active {
