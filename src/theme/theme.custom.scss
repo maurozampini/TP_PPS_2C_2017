@@ -79,5 +79,82 @@
       color: $btn !important;
       background-color: transparent !important;
     }
-  
+}
+
+/* TOOLBAR */
+.custom-theme-tool1 {
+  $toolbar: rgb(246, 14, 103);
+  .toolbar-background {
+    background-color: $amarillo !important;
   }
+}
+
+.custom-theme-tool2 {
+    $toolbar: #F6B40E;
+    .toolbar-background {
+      background-color: $amarillo !important;
+    }
+}
+
+/* TEXT */
+.custom-theme-text1 {
+
+  $text: #424242;
+
+  /* TOOLBAR */
+  .bar-button-ios { //IOS
+    color: $text;
+  }
+  .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+    color: $text !important;
+  }
+
+  /* TOOLBAR BTN */
+  //Android
+  .segment-md-primary .segment-button {
+    color: $text !important;
+  }
+
+  //iOS
+  .segment-ios-primary .segment-button,
+  .segment-ios .segment-button { 
+    border-color: $text;
+    color: $text;
+  }
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    border-color: $text !important;
+  }
+
+}
+
+.custom-theme-text2 {
+
+    $text: #000000;
+  
+    /* TOOLBAR */
+    .bar-button-ios { //IOS
+      color: $text;
+    }
+    .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+      color: $text !important;
+    }
+  
+    /* TOOLBAR BTN */
+    //Android
+    .segment-md-primary .segment-button {
+      color: $text !important;
+    }
+  
+    //iOS
+    .segment-ios-primary .segment-button,
+    .segment-ios .segment-button { 
+      border-color: $text;
+      color: $text;
+    }
+    .segment-ios-primary .segment-button.segment-activated, 
+    .segment-ios .segment-button.segment-activated { //Active
+      border-color: $text !important;
+    }
+  
+}
