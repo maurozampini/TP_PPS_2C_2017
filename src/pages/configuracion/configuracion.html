@@ -12,7 +12,7 @@
       Tema:
     </ion-card-header>
     <ion-card-content>
-      <ion-select [(ngModel)]="selectedTheme" (ionChange)="changeTheme($event)">
+      <ion-select [(ngModel)]="selectedTheme" (ionChange)="changeTheme()">
         <ion-option value="profesional-theme">Profesional</ion-option>
         <ion-option value="naive-theme">Naive</ion-option>
         <ion-option value="argentina-theme">Argentina</ion-option>
@@ -20,5 +20,34 @@
       </ion-select>
     </ion-card-content>
   </ion-card>
+
+  <ion-content padding *ngIf="selectedTheme == 'custom-theme'">
+      <h3>Personalizar: </h3>
+
+      <ion-card>
+        <ion-card-header>
+          Fondo:
+        </ion-card-header>
+        <ion-card-content>
+          <ion-select [(ngModel)]="selectedTheme" (ionChange)="changeTheme()">
+            <ion-option value="custom-theme-back1">Celeste</ion-option>
+            <ion-option value="custom-theme-back2">Naranja</ion-option>
+          </ion-select>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+          <ion-card-header>
+            Botones:
+          </ion-card-header>
+          <ion-card-content>
+            <ion-select [(ngModel)]="selectedTheme" (ionChange)="changeTheme()">
+              <ion-option value="custom-theme-btn1">Azul</ion-option>
+              <ion-option value="custom-theme-btn2">Verde</ion-option>
+            </ion-select>
+          </ion-card-content>
+        </ion-card>
+
+  </ion-content>
 
 </ion-content>

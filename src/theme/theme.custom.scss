@@ -1,5 +1,83 @@
-.custom-theme { 
+.custom-theme {
+    /*LOGO*/
+    .universidad-logo{
+        background-image: url("../assets/logos/logo-argentina.png"); //HACER UNO
+        background-repeat: no-repeat;
+        background-size: 100%, 90%;
+        height: 25%;
+    }
 
+    .button-md.button-default, .button-ios {
+        border-radius: 50px;
+        box-shadow: 4px 5px #222;
+        margin-bottom: 10px;
+      }
+}
+
+//BACKGROUND
+.custom-theme-back1 { 
+    $background: #7dc1ff ;
     
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back2 { 
+    $background: #ff9b7d ;
+
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+/* BUTTONS */
+.custom-theme-btn1 {
+
+  $btn: #3f56c7;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
 
 }
+
+.custom-theme-btn2 {
+
+    $btn: #44c73f;
+  
+    .segment-ios-primary .segment-button.segment-activated, 
+    .segment-ios .segment-button.segment-activated { //Active
+      background-color: $btn;
+    }
+  
+    .item-md-primary, .item-ios-primary {
+      background-color: $btn;
+    }
+  
+    .button-md.button-default, .button-ios {
+      background-color: $btn !important;
+      color: #FFFFFF !important;
+    }
+  
+    .button-clear-ios {
+      color: $btn !important;
+      background-color: transparent !important;
+    }
+  
+  }

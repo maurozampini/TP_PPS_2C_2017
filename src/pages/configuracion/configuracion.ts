@@ -10,14 +10,23 @@ import { SettingsProvider } from './../../providers/settings/settings';
 export class ConfiguracionPage {
 
   public selectedTheme: String;
+  //Custom
+  public customBackground: String = "custom-theme-back1";
+  public customButtons: String = "custom-theme-btn1"
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private settings: SettingsProvider) {
   }
 
-  public changeTheme(theme: string) {
-    this.settings.setActiveTheme(theme);
+  public changeTheme() {
+    if(this.selectedTheme != "custom-theme" ){
+      this.settings.setActiveTheme(this.selectedTheme);
+    } else {
+      this.settings.setActiveTheme(this.selectedTheme 
+        + " " + this.customBackground
+        + " " + this.customButtons);
+    }
   }
 
 }
