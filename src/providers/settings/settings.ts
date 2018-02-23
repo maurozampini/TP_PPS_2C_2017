@@ -17,4 +17,8 @@ export class SettingsProvider {
     getActiveTheme() {
         return this.theme.asObservable();
     }
+
+    getActiveThemeValue() {
+        return this.theme.value;
+    }
 }

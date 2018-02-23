@@ -8,15 +8,13 @@
     }
 
     .button-md.button-default, .button-ios {
-        border-radius: 50px;
-        box-shadow: 4px 5px #222;
         margin-bottom: 10px;
-      }
+    }
 }
 
 //BACKGROUND
 .custom-theme-back1 { 
-    $background: #7dc1ff ;
+    $background: #FFF;
     
     ion-content, .scroll-content {
         background-color: $background !important;
@@ -24,17 +22,50 @@
 }
 
 .custom-theme-back2 { 
-    $background: #ff9b7d ;
-
+    $background: black;
+    
     ion-content, .scroll-content {
         background-color: $background !important;
     }
 }
 
+.custom-theme-back3 { 
+    $background: blue ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back4 { 
+    $background: yellow ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back5 { 
+    $background: green ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back6 { 
+    $background: red ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+
 /* BUTTONS */
 .custom-theme-btn1 {
 
-  $btn: #3f56c7;
+  $btn: #488aff;
 
   .segment-ios-primary .segment-button.segment-activated, 
   .segment-ios .segment-button.segment-activated { //Active
@@ -59,41 +90,120 @@
 
 .custom-theme-btn2 {
 
-    $btn: #44c73f;
-  
-    .segment-ios-primary .segment-button.segment-activated, 
-    .segment-ios .segment-button.segment-activated { //Active
-      background-color: $btn;
-    }
-  
-    .item-md-primary, .item-ios-primary {
-      background-color: $btn;
-    }
-  
-    .button-md.button-default, .button-ios {
-      background-color: $btn !important;
-      color: #FFFFFF !important;
-    }
-  
-    .button-clear-ios {
-      color: $btn !important;
-      background-color: transparent !important;
-    }
+  $btn: #32db64;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
+
+}
+
+.custom-theme-btn3 {
+
+  $btn: #f53d3d;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
+
+}
+
+.custom-theme-btn4 {
+
+  $btn: #9c3caf;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
+
 }
 
 /* TOOLBAR */
 .custom-theme-tool1 {
-  $toolbar: rgb(246, 14, 103);
+  $toolbar: #FFF;
   .toolbar-background {
-    background-color: $amarillo !important;
+    background-color: $toolbar !important;
   }
 }
 
 .custom-theme-tool2 {
-    $toolbar: #F6B40E;
-    .toolbar-background {
-      background-color: $amarillo !important;
-    }
+  $toolbar: #000;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool3 {
+  $toolbar: blue;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool4 {
+  $toolbar: yellow;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool5 {
+  $toolbar: green;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool6 {
+  $toolbar: red;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
 }
 
 /* TEXT */
@@ -129,8 +239,7 @@
 }
 
 .custom-theme-text2 {
-
-    $text: #000000;
+    $text: #ffffff;
   
     /* TOOLBAR */
     .bar-button-ios { //IOS
@@ -157,4 +266,110 @@
       border-color: $text !important;
     }
   
+}
+
+.custom-theme-text3 {
+
+    $text: #0d0246;
+  
+    /* TOOLBAR */
+    .bar-button-ios { //IOS
+      color: $text;
+    }
+    .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+      color: $text !important;
+    }
+  
+    /* TOOLBAR BTN */
+    //Android
+    .segment-md-primary .segment-button {
+      color: $text !important;
+    }
+  
+    //iOS
+    .segment-ios-primary .segment-button,
+    .segment-ios .segment-button { 
+      border-color: $text;
+      color: $text;
+    }
+    .segment-ios-primary .segment-button.segment-activated, 
+    .segment-ios .segment-button.segment-activated { //Active
+      border-color: $text !important;
+    }
+  
+}
+
+.custom-theme-text4 {
+
+    $text: #550202;
+  
+    /* TOOLBAR */
+    .bar-button-ios { //IOS
+      color: $text;
+    }
+    .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+      color: $text !important;
+    }
+  
+    /* TOOLBAR BTN */
+    //Android
+    .segment-md-primary .segment-button {
+      color: $text !important;
+    }
+  
+    //iOS
+    .segment-ios-primary .segment-button,
+    .segment-ios .segment-button { 
+      border-color: $text;
+      color: $text;
+    }
+    .segment-ios-primary .segment-button.segment-activated, 
+    .segment-ios .segment-button.segment-activated { //Active
+      border-color: $text !important;
+    }
+  
+}
+
+/* BUTTON ROUND */
+.custom-theme-btnR1 {
+    .button-md.button-default, .button-ios {
+        border-radius: 0px;
+    }
+}
+
+.custom-theme-btnR2 {
+    .button-md.button-default, .button-ios {
+        border-radius: 8px;
+    }
+}
+
+.custom-theme-btnR3 {
+    .button-md.button-default, .button-ios {
+        border-radius: 50px;
+    }
+}
+
+/* FONTS */
+.custom-theme-font1 {
+    ion-header, ion-content {
+        font-family: Georgia, serif !important;
+    }  
+}
+
+.custom-theme-font2 {
+    ion-header, ion-content {
+        font-family: Arial, Helvetica, sans-serif !important;
+    }  
+}
+
+.custom-theme-font3 {
+    ion-header, ion-content {
+        font-family: "Comic Sans MS", cursive, sans-serif !important;
+    }  
+}
+
+.custom-theme-font4 {
+    ion-header, ion-content {
+        font-family: "Lucida Console", Monaco, monospace !important;
+    }  
 }

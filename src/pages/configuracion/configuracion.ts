@@ -20,10 +20,15 @@ export class ConfiguracionPage {
     public navParams: NavParams,
     public settings: SettingsProvider,
     public formBuilder: FormBuilder) {
+      let current = this.settings.getActiveThemeValue();
       this.formStyle = this.formBuilder.group({
-        theme: ['', Validators.required],
-        background: ['', Validators.required],
-        buttons: ['', Validators.required],
+        theme: [current, Validators.required],
+        background: ['custom-theme-back1', Validators.required],
+        buttons: ['custom-theme-btn1', Validators.required],
+        toolbar: ['custom-theme-tool1', Validators.required],
+        text: ['custom-theme-text1', Validators.required],
+        roundBtn: ['custom-theme-btnR1', Validators.required],
+        font: ['custom-theme-font1', Validators.required]
       })
       this.formStyle.valueChanges.subscribe(this.changeTheme.bind(this));
   }
@@ -32,12 +37,20 @@ export class ConfiguracionPage {
     let theme = this.formStyle.controls['theme'].value;
     let background = this.formStyle.controls['background'].value;
     let buttons = this.formStyle.controls['buttons'].value;
+    let toolbar = this.formStyle.controls['toolbar'].value;
+    let text = this.formStyle.controls['text'].value;
+    let roundBtn = this.formStyle.controls['roundBtn'].value;
+    let font = this.formStyle.controls['font'].value;
     if(theme != "custom-theme" ){
       this.settings.setActiveTheme(theme);
     } else {
       this.settings.setActiveTheme(theme 
         + " " + background
-        + " " + buttons);
+        + " " + buttons
+        + " " + toolbar
+        + " " + text
+        + " " + roundBtn
+        + " " + font);
     }
   }
 
