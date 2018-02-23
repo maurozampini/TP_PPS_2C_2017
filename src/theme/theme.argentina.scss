@@ -1,4 +1,4 @@
-@import "fonts/argentina.fonts";
+@font-face { font-family: Magallanes; src: url('../assets/Magallanes.otf'); } 
 
 .argentina-theme {
 
@@ -9,7 +9,7 @@
   $gris: #424242;
 
   ion-header, ion-content {
-    font-family: $magallanes !important;
+    font-family: Magallanes !important;
   }
 
   /* TOOLBAR */
@@ -59,7 +59,7 @@
 
   /* TITLE */
   .page-title {
-    font-weight: $bold;
+    font-weight: 800;
   }
 
   /* LIST */

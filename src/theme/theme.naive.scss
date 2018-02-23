@@ -1,4 +1,4 @@
-@import "fonts/naive.fonts";
+@font-face { font-family: Schoolbell; src: url('../assets/Schoolbell.ttf'); } 
 
 .naive-theme {
 
@@ -10,7 +10,7 @@
   $acuarela-roja: url("../assets/imagenes/fondo-boton-naive.jpg");
 
   ion-header, ion-content {
-    font-family: $schoolbell !important;
+    font-family: Schoolbell !important;
   }
 
   ion-segment {
@@ -65,13 +65,13 @@
 
   /* TITLE */
   .page-title {
-    font-weight: $bold;
+    font-weight: 800;
     color: $gris;
   }
 
   .page-susbtitle {
     color: $gris;
-    font-weight: $bold;
+    font-weight: 800;
   }
 
   /* LIST */
