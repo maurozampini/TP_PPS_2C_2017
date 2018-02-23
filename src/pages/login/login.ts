@@ -22,7 +22,6 @@ export class LoginPage {
   valid = new  BehaviorSubject<boolean>(false);
   selectedUser: string;
   connection;
-  splash = true;
   safeSvg;
   private SN_PASS = "ll3dkapsnrk50s";
   public pasoUna: boolean = false;
@@ -38,10 +37,6 @@ export class LoginPage {
     public facebook: Facebook,
     //public socketService: SocketService
   ) {
-  }
-
-  ionViewDidLoad() {
-    setTimeout(() => this.splash = false, 4000);
   }
 
   async login(user: User) {
@@ -67,14 +62,6 @@ export class LoginPage {
                 })
             }
           });
-          if(!encontrado) {
-            /*swal({
-              title: 'Usuario incorrecto',
-              text: 'Este usuario no existe o fue eliminado',
-              type: 'error',
-              timer: 1500
-            })*/
-          }
         }) as Observable<any>).subscribe();
         setTimeout(() => {
           subs.unsubscribe();
@@ -159,7 +146,7 @@ export class LoginPage {
       spinner: 'hide',
       cssClass: 'loader',
       content: img,
-      duration: 5000
+      duration: 0
     });
     return loader;
   }

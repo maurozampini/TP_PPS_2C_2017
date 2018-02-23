@@ -1,7 +1,7 @@
 .custom-theme {
     /*LOGO*/
     .universidad-logo{
-        background-image: url("../assets/logos/logo-argentina.png"); //HACER UNO
+        background-image: url("../assets/logos/logo-custom.png"); //HACER UNO
         background-repeat: no-repeat;
         background-size: 100%, 90%;
         height: 25%;
@@ -211,6 +211,10 @@
 
   $text: #424242;
 
+  ion-content {
+    color: $text !important;
+  }
+
   /* TOOLBAR */
   .bar-button-ios { //IOS
     color: $text;
@@ -241,6 +245,10 @@
 .custom-theme-text2 {
     $text: #ffffff;
   
+    ion-content {
+        color: $text !important;
+    }
+
     /* TOOLBAR */
     .bar-button-ios { //IOS
       color: $text;
@@ -270,8 +278,12 @@
 
 .custom-theme-text3 {
 
-    $text: #0d0246;
+    $text: #160085;
   
+    ion-content {
+        color: $text !important;
+    }
+
     /* TOOLBAR */
     .bar-button-ios { //IOS
       color: $text;
@@ -301,8 +313,12 @@
 
 .custom-theme-text4 {
 
-    $text: #550202;
+    $text: #7a0202;
   
+    ion-content {
+        color: $text !important;
+    }
+
     /* TOOLBAR */
     .bar-button-ios { //IOS
       color: $text;
