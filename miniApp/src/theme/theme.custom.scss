@@ -1,0 +1,391 @@
+.custom-theme {
+    /*LOGO*/
+    .universidad-logo{
+        background-image: url("../assets/logos/logo-custom.png"); //HACER UNO
+        background-repeat: no-repeat;
+        background-size: 100%, 90%;
+        height: 25%;
+    }
+
+    .button-md.button-default, .button-ios {
+        margin-bottom: 10px;
+    }
+}
+
+//BACKGROUND
+.custom-theme-back1 { 
+    $background: #FFF;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back2 { 
+    $background: black;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back3 { 
+    $background: blue ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back4 { 
+    $background: yellow ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back5 { 
+    $background: green ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+.custom-theme-back6 { 
+    $background: red ;
+    
+    ion-content, .scroll-content {
+        background-color: $background !important;
+    }
+}
+
+
+/* BUTTONS */
+.custom-theme-btn1 {
+
+  $btn: #488aff;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
+
+}
+
+.custom-theme-btn2 {
+
+  $btn: #32db64;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
+
+}
+
+.custom-theme-btn3 {
+
+  $btn: #f53d3d;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
+
+}
+
+.custom-theme-btn4 {
+
+  $btn: #9c3caf;
+
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-color: $btn;
+  }
+
+  .item-md-primary, .item-ios-primary {
+    background-color: $btn;
+  }
+
+  .button-md.button-default, .button-ios {
+    background-color: $btn !important;
+    color: #FFFFFF !important;
+  }
+
+  .button-clear-ios {
+    color: $btn !important;
+    background-color: transparent !important;
+  }
+
+}
+
+/* TOOLBAR */
+.custom-theme-tool1 {
+  $toolbar: #FFF;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool2 {
+  $toolbar: #000;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool3 {
+  $toolbar: blue;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool4 {
+  $toolbar: yellow;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool5 {
+  $toolbar: green;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+.custom-theme-tool6 {
+  $toolbar: red;
+  .toolbar-background {
+    background-color: $toolbar !important;
+  }
+}
+
+/* TEXT */
+.custom-theme-text1 {
+
+  $text: #424242;
+
+  ion-content {
+    color: $text !important;
+  }
+
+  /* TOOLBAR */
+  .bar-button-ios { //IOS
+    color: $text;
+  }
+  .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+    color: $text !important;
+  }
+
+  /* TOOLBAR BTN */
+  //Android
+  .segment-md-primary .segment-button {
+    color: $text !important;
+  }
+
+  //iOS
+  .segment-ios-primary .segment-button,
+  .segment-ios .segment-button { 
+    border-color: $text;
+    color: $text;
+  }
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    border-color: $text !important;
+  }
+
+}
+
+.custom-theme-text2 {
+    $text: #ffffff;
+  
+    ion-content {
+        color: $text !important;
+    }
+
+    /* TOOLBAR */
+    .bar-button-ios { //IOS
+      color: $text;
+    }
+    .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+      color: $text !important;
+    }
+  
+    /* TOOLBAR BTN */
+    //Android
+    .segment-md-primary .segment-button {
+      color: $text !important;
+    }
+  
+    //iOS
+    .segment-ios-primary .segment-button,
+    .segment-ios .segment-button { 
+      border-color: $text;
+      color: $text;
+    }
+    .segment-ios-primary .segment-button.segment-activated, 
+    .segment-ios .segment-button.segment-activated { //Active
+      border-color: $text !important;
+    }
+  
+}
+
+.custom-theme-text3 {
+
+    $text: #160085;
+  
+    ion-content {
+        color: $text !important;
+    }
+
+    /* TOOLBAR */
+    .bar-button-ios { //IOS
+      color: $text;
+    }
+    .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+      color: $text !important;
+    }
+  
+    /* TOOLBAR BTN */
+    //Android
+    .segment-md-primary .segment-button {
+      color: $text !important;
+    }
+  
+    //iOS
+    .segment-ios-primary .segment-button,
+    .segment-ios .segment-button { 
+      border-color: $text;
+      color: $text;
+    }
+    .segment-ios-primary .segment-button.segment-activated, 
+    .segment-ios .segment-button.segment-activated { //Active
+      border-color: $text !important;
+    }
+  
+}
+
+.custom-theme-text4 {
+
+    $text: #7a0202;
+  
+    ion-content {
+        color: $text !important;
+    }
+
+    /* TOOLBAR */
+    .bar-button-ios { //IOS
+      color: $text;
+    }
+    .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios, .bar-button-ios {
+      color: $text !important;
+    }
+  
+    /* TOOLBAR BTN */
+    //Android
+    .segment-md-primary .segment-button {
+      color: $text !important;
+    }
+  
+    //iOS
+    .segment-ios-primary .segment-button,
+    .segment-ios .segment-button { 
+      border-color: $text;
+      color: $text;
+    }
+    .segment-ios-primary .segment-button.segment-activated, 
+    .segment-ios .segment-button.segment-activated { //Active
+      border-color: $text !important;
+    }
+  
+}
+
+/* BUTTON ROUND */
+.custom-theme-btnR1 {
+    .button-md.button-default, .button-ios {
+        border-radius: 0px;
+    }
+}
+
+.custom-theme-btnR2 {
+    .button-md.button-default, .button-ios {
+        border-radius: 8px;
+    }
+}
+
+.custom-theme-btnR3 {
+    .button-md.button-default, .button-ios {
+        border-radius: 50px;
+    }
+}
+
+/* FONTS */
+.custom-theme-font1 {
+    ion-header, ion-content {
+        font-family: Georgia, serif !important;
+    }  
+}
+
+.custom-theme-font2 {
+    ion-header, ion-content {
+        font-family: Arial, Helvetica, sans-serif !important;
+    }  
+}
+
+.custom-theme-font3 {
+    ion-header, ion-content {
+        font-family: "Comic Sans MS", cursive, sans-serif !important;
+    }  
+}
+
+.custom-theme-font4 {
+    ion-header, ion-content {
+        font-family: "Lucida Console", Monaco, monospace !important;
+    }  
+}

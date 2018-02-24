@@ -1,0 +1,109 @@
+@font-face { font-family: Schoolbell; src: url('../assets/Schoolbell.ttf'); } 
+
+.naive-theme {
+
+  $celeste: #7dc1ff;
+  $azul: #3f56c7;
+  $blanco: #FFFFFF;
+  $gris: #424242;
+  $acuarela-azul: url("../assets/imagenes/fondo-header-naive.jpg");
+  $acuarela-roja: url("../assets/imagenes/fondo-boton-naive.jpg");
+
+  ion-header, ion-content {
+    font-family: Schoolbell !important;
+  }
+
+  ion-segment {
+    background-image: $acuarela-roja !important;
+  }
+
+  /* TOOLBAR */
+  .bar-button-ios { //IOS
+    color: $gris;
+  }
+  .toolbar-title-md, .bar-button-default-md, .toolbar-title-ios {
+    color: $gris !important;
+  }
+  .toolbar-background {
+    background-image: $acuarela-azul !important;
+  }
+
+  /* TOOLBAR BTN */
+  //Android
+  .segment-md-primary .segment-button {
+    color: $gris !important;
+  }
+  .segment-button.segment-activated { //Active
+    border-color: $gris !important;
+    color: $blanco !important;
+  }
+
+  //iOS
+  .segment-ios-primary .segment-button,
+  .segment-ios .segment-button { 
+    border-color: $gris;
+    color: $gris;
+  }
+  .segment-ios-primary .segment-button.segment-activated, 
+  .segment-ios .segment-button.segment-activated { //Active
+    background-image: $acuarela-azul;
+    border-color: $gris !important;
+  }
+
+  /* BACKGROUND */
+  ion-content, .scroll-content {
+    background-image: url("../assets/imagenes/hoja-cuadriculada.jpg") !important;
+  }
+  
+  /*LOGO*/
+  .universidad-logo{
+    background-image: url("../assets/logos/logo-naive.png");
+    background-repeat: no-repeat;
+    background-size: 100%, 90%;
+    height: 25%;
+  }
+
+  /* TITLE */
+  .page-title {
+    font-weight: 800;
+    color: $gris;
+  }
+
+  .page-susbtitle {
+    color: $gris;
+    font-weight: 800;
+  }
+
+  /* LIST */
+  .item-md-primary, .item-ios-primary {
+    background-image: $acuarela-roja !important;
+  }
+
+  /* BUTTON */
+
+  .button-md.button-default, .button-ios, .cerrarSesion {
+    color: $blanco !important;
+    margin-bottom: 10px;
+    background-image: $acuarela-roja !important;
+  }
+
+  .button-md.button-default:active, .button-ios:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .button-clear-ios {
+    color: $azul !important;
+    background-color: transparent !important;
+  }
+
+  //button clear
+  .button-clear-ios {
+    color: $blanco !important;
+  }
+  
+  .button-clear-md {
+    color: $gris !important;
+  }
+
+}
