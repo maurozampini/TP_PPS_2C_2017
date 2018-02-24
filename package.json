@@ -35,7 +35,6 @@
     "angularfire2": "4.0.0-rc.2",
     "chart.js": "^2.7.1",
     "cordova-android": "^6.2.3",
-    "cordova-ios": "~4.5.4",
     "cordova-plugin-camera": "^3.0.0",
     "cordova-plugin-compat": "^1.0.0",
     "cordova-plugin-datepicker": "^0.9.3",
@@ -59,7 +58,8 @@
     "sweetalert2": "^7.0.3",
     "timers": "^0.1.1",
     "xlsx": "^0.11.14",
-    "zone.js": "0.8.18"
+    "zone.js": "0.8.18",
+    "cordova-ios": "~4.5.4"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.0.1",
